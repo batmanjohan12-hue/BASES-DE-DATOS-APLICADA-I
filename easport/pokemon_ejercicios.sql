@@ -30,8 +30,11 @@ SELECT pk.apodo, pk.nivel, es.nombre, e.alias_entrenador FROM POKEMONES_CAPTURAD
 
 SELECT pk.apodo, es.nombre, es.tipo_primario_id, t.clima_favorable FROM POKEMONES_CAPTURADOS pk INNER JOIN ESPECIES es ON pk.ESPECIE_ID = es.ID INNER JOIN tipos t ON es.TIPO_PRIMARIO_ID = t.id WHERE pk.ES_SHINY = 'S' OR es.ES_LEGENDARIO = 'S';
 
-
-
+select * from entrenadores;
+select * FROM OBJETOS;
+select * from INVENTARIO_ENTRENADOR;
+-- 93
+SELECT e.alias_entrenador, o.nombre, o.precio_tienda, (inv.cantidad * o.precio_tienda) AS valor_lote FROM inventario_entrenador inv INNER JOIN OBJETOS o ON inv.objeto_id = o.id INNER JOIN ENTRENADORES e ON inv.entrenador_id = e.id ORDER BY valor_lote DESC;
 
 
 
